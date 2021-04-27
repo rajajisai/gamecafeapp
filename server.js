@@ -30,8 +30,21 @@ app.use(express.json());
 
 
 const uri = process.env.MONGODB_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
-);
+// mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+// );
+mongoose
+      .connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true,
+      })
+      .then(() => {
+        console.log('Database connected successfully!');
+      })
+      .catch((err) => {
+        console.log('Error connecting with error code:', err);
+      });
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
