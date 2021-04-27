@@ -20,7 +20,7 @@ export default function Profile() {
     const handleSignout = () => {
         // console.log("asd " + authApi.auth  
       signout(() => {
-        axios.delete('http://localhost:5000/customer/logout')
+        axios.delete(' /customer/logout')
        .then(res => console.log(res.data));
        history.push('/signin')
       });

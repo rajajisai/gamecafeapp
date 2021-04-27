@@ -18,15 +18,15 @@ class Inventory extends Component {
             workstation:{}};
         this.bookSlot = this.bookSlot.bind(this);
       }
-    //'http://localhost:5000/workstation'
+    //' /workstation'
      onDelete(d){
         console.log(d);
         console.log(d._id);
-        axios.delete(`http://localhost:5000/workstation/${d._id}`)
+        axios.delete(` /workstation/${d._id}`)
     .then(res => {
       console.log(res);
       console.log(res.data);
-       axios.get(`http://localhost:5000/workstation/`)
+       axios.get(` /workstation/`)
     .then(res => {
       const systems = res.data;
       this.setState({ systems:systems });
@@ -34,7 +34,7 @@ class Inventory extends Component {
     })
   }
     componentDidMount() {
-        const apiUrl = 'http://localhost:5000/workstation/';
+        const apiUrl = ' /workstation/';
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => this.setState({systems: data.slice(0)}));
@@ -51,7 +51,7 @@ class Inventory extends Component {
             msg1.slots[num].isBooked=true;
             console.log(msg1);
             console.log(msg1._id);
-            axios.post('http://localhost:5000/workstation/update/'+msg1._id,msg1)
+            axios.post(' /workstation/update/'+msg1._id,msg1)
            .then(res => console.log(res.data));
       }
       onSubmit = () => {
@@ -69,10 +69,10 @@ class Inventory extends Component {
             rent: Number(rent),
             date:date
         }
-        axios.post('http://localhost:5000/workstation/add',newRequest)
+        axios.post(' /workstation/add',newRequest)
              .then(res => console.log(res.data));
              alert("Request Added!");
-             axios.get(`http://localhost:5000/workstation/`)
+             axios.get(` /workstation/`)
              .then(res => {
                const systems = res.data;
                this.setState({ systems:systems  });

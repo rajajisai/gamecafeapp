@@ -8,7 +8,7 @@ class UserBooking
     componentDidMount(){
         console.log("Printing email from parent"+this.props.userEmail);
         const newemail=this.props.userEmail
-        const apiUrl = 'http://localhost:5000/customer/';
+        const apiUrl = ' /customer/';
         fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => this.setState({customer: data.slice(0).filter(function(obj){return obj.email==newemail })[0],slots:data.slice(0).filter(function(obj){return obj.email==newemail })[0].slotsBooked},() => {

@@ -17,7 +17,7 @@ import { authenticate, isAuth } from '../auth/helpers';
     //       name: response.profileObj.name,
     //       email: response.profileObj.email
     //     }
-    //     axios.post('http://localhost:5000/customer/add',customer)
+    //     axios.post(' /customer/add',customer)
     //        .then(res => console.log(res.data));
     //        alert("Logged In!")
     //   }
@@ -66,7 +66,7 @@ export default function LoginForm2({ history }) {
       name: response.profileObj.name,
       email: response.profileObj.email
     }
-    axios.post('http://localhost:5000/customer/glogin',customer)
+    axios.post(' /customer/glogin',customer)
        .then(res => console.log(res.data));
        alert("Logged In!")
        authenticate(response,customer, () => {
@@ -86,7 +86,7 @@ const handleSignin = (response) =>{
     //   name: response.profileObj.name,
     //   email: response.profileObj.email
     // }
-    // axios.post('http://localhost:5000/customer/add',customer)
+    // axios.post(' /customer/add',customer)
     //    .then(res => console.log(res.data));
     //    alert("Logged In!")
   

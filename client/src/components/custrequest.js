@@ -37,10 +37,10 @@ class CustomerRequest extends Component {
         reqbody: this.state.reqbody,
         requestedBy: this.state.name
       }
-      axios.post('http://localhost:5000/request/add',newRequest)
+      axios.post(' /request/add',newRequest)
            .then(res => console.log(res.data));
            alert("Request Added!");
-           axios.get(`http://localhost:5000/request/`)
+           axios.get(` /request/`)
            .then(res => {
              const requests = res.data;
              this.setState({ requests:requests });

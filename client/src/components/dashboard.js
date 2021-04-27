@@ -13,10 +13,10 @@
 //             workstation:{}};
 //         this.bookSlot = this.bookSlot.bind(this);
 //       }
-//     //'http://localhost:5000/workstation'
+//     //' /workstation'
       
 //     componentDidMount() {
-//         const apiUrl = 'http://localhost:5000/workstation/';
+//         const apiUrl = ' /workstation/';
 //         fetch(apiUrl)
 //           .then((response) => response.json())
 //           .then((data) => this.setState({systems: data.slice(0)}));
@@ -32,7 +32,7 @@
 //             msg1.slots[num].isBooked=true;
 //             console.log(msg1);
 //             console.log(msg1._id);
-//             axios.post('http://localhost:5000/workstation/update/'+msg1._id,msg1)
+//             axios.post(' /workstation/update/'+msg1._id,msg1)
 //            .then(res => console.log(res.data));
 //       }
 //       render() { 
@@ -96,12 +96,12 @@ class Dashboard extends Component {
             workstation:{}};
         this.bookSlot = this.bookSlot.bind(this);
       }
-    //'http://localhost:5000/workstation'
+    //' /workstation'
       
     componentDidMount() {
         let date=new Date();
         console.log(date.toISOString().slice(0, 10));
-        const apiUrl = 'http://localhost:5000/workstation/';
+        const apiUrl = ' /workstation/';
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date.toISOString().slice(0, 10) })}));
@@ -116,7 +116,7 @@ class Dashboard extends Component {
             msg1.slots[num].isBooked=true;
             console.log(msg1);
             console.log(msg1._id);
-            await axios.post('http://localhost:5000/workstation/update/'+msg1._id,msg1)
+            await axios.post(' /workstation/update/'+msg1._id,msg1)
            .then(res => console.log(res.data));
 
 
@@ -127,10 +127,10 @@ class Dashboard extends Component {
            const bookedSlot = {date : date , workstation : msg.name , time : msg.slots[num].startTime}
             const newSlot = {email : userEmail,slot : bookedSlot};
             console.log(newSlot)
-           await axios.post('http://localhost:5000/customer/bookSlot',newSlot).then(res => console.log(res.data));
+           await axios.post(' /customer/bookSlot',newSlot).then(res => console.log(res.data));
            
 
-           const apiUrl = 'http://localhost:5000/workstation/';
+           const apiUrl = ' /workstation/';
            fetch(apiUrl)
              .then((response) => response.json())
              .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date })},() => {
@@ -138,7 +138,7 @@ class Dashboard extends Component {
               }));
       }
       toDate(date){
-        const apiUrl = 'http://localhost:5000/workstation/';
+        const apiUrl = ' /workstation/';
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date })}));
