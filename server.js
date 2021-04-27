@@ -59,9 +59,10 @@ app.use(session({
   saveUninitialized: false,
   resave: false,
   store: MongoDBStore({
-    mongooseConnection: mongoose.connection,
+    // mongooseConnection: mongoose.connection,
     collection: 'session',
-    ttl: parseInt(SESS_LIFETIME) / 1000
+    ttl: parseInt(SESS_LIFETIME) / 1000,
+    uri:process.env.MONGODB_URI
   }),
   cookie: {
     sameSite: true,
