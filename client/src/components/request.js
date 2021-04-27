@@ -15,7 +15,7 @@ class Request extends Component {
             };
       }
       componentDidMount() {
-        const apiUrl = 'http://localhost:5000/request/';
+        const apiUrl = 'https://rajisai.herokuapp.com/request/';
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => this.setState({requests: data.slice(0)}));
@@ -23,11 +23,11 @@ class Request extends Component {
       removeRequest(r){
           console.log(r);
           console.log(r._id);
-          axios.delete(`http://localhost:5000/request/${r._id}`)
+          axios.delete(`https://rajisai.herokuapp.com/request/${r._id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);
-        axios.get(`http://localhost:5000/request/`)
+        axios.get(`https://rajisai.herokuapp.com/request/`)
       .then(res => {
         const requests = res.data;
         this.setState({ requests:requests });
@@ -58,10 +58,10 @@ class Request extends Component {
         reqbody: this.state.reqbody,
         requestedBy: this.state.name
       }
-      axios.post('http://localhost:5000/request/add',newRequest)
+      axios.post('https://rajisai.herokuapp.com/request/add',newRequest)
            .then(res => console.log(res.data));
            alert("Request Added!");
-           axios.get(`http://localhost:5000/request/`)
+           axios.get(`https://rajisai.herokuapp.com/request/`)
            .then(res => {
              const requests = res.data;
              this.setState({ requests:requests });
