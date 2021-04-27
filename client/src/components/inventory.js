@@ -59,13 +59,15 @@ class Inventory extends Component {
         var pic=document.getElementById("pic").value
         var type= document.getElementById("type").value
         var rent=document.getElementById("rent").value
-        if(name!=""&&type!=""&&rent!="" ){
+        var date=document.getElementById("date").value
+        if(name!=""&&type!=""&&rent!=""&&date!=""&&pic!="" ){
          
         const newRequest ={
           name: name,
           pic: pic,
           type: type,
-            rent: Number(rent)
+            rent: Number(rent),
+            date:date
         }
         axios.post('http://localhost:5000/workstation/add',newRequest)
              .then(res => console.log(res.data));
@@ -92,7 +94,7 @@ class Inventory extends Component {
             <div class="textbox">
             <input type="text" placeholder="Type of workstation" id="type" />
             </div>
-        
+            <div class="textbox"><input type="text" placeholder="Date in YYYY-MM-DD format ONLY" id="date" /></div>
             <div class="textbox"><input type="text" placeholder="Url of picture of workstation" id="pic" /></div>
             <div class="textbox"><input type="text" placeholder="Rent" id="rent" /></div>
             
