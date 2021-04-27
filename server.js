@@ -45,10 +45,10 @@ mongoose
       .catch((err) => {
         console.log('Error connecting with error code:', err);
       });
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
-})
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+//   console.log("MongoDB database connection established successfully");
+// })
 
 // module.exports = {
 //   IS_PROD: process.env.NODE_ENV === 'production',
