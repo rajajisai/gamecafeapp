@@ -1,0 +1,28 @@
+ul#removeBullets{
+  list-style-type: none;
+}
+p {
+  font-weight: bold;
+}
+.productGrid li{
+  display: inline;
+    float: left;
+    padding: 10px;
+  /* border: 1px solid rgb(0, 255, 0); */
+  margin-right: 5px;
+}
+.green-color{
+  color:green !important
+}
+.red-color{
+  color: red  !important
+}
+.flex-item{
+  color: white;
+  font-weight: bolder;
+  background: rgba(0,0,0,0.6);
+}
+.caption{
+  margin:auto;
+  text-align: center;
+}
