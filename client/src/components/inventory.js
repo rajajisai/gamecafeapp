@@ -106,9 +106,9 @@ class Inventory extends Component {
             <div class="textbox">
             <input type="text" placeholder="Type of workstation" id="type" />
             </div>
-            <div class="textbox"><input type="text" placeholder="Date in YYYY-MM-DD format ONLY" id="date" /></div>
+            <div class="textbox"><input type="text" placeholder="Date in YYYY-MM-DD format" id="date" /></div>
             <div class="textbox"><input type="text" placeholder="Url of picture of workstation" id="pic" /></div>
-            <div class="textbox"><input type="text" placeholder="Rent" id="rent" /></div>
+            <div class="textbox"><input type="text" placeholder="Per hour rent rate" id="rent" /></div>
             
             <Button href="/inventory" onClick={this.onSubmit} className="btn" type="submit">Add system</Button>
             </div>
@@ -122,6 +122,7 @@ class Inventory extends Component {
                 <div className="caption">
                     <h5 className="bolder">{d.name}</h5>
                     <p>Rs.{d.rent}/hr</p>
+                    <p >{d.date}</p>
                 </div>
                 <DropdownButton id="dropdown-basic-button" title="Games Available">
                     {d.config.games.map((game) =>{

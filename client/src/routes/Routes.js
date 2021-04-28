@@ -12,7 +12,6 @@ import Navbar2 from '../components/navbar2'
 import { authenticate, isAuth , isAdmin } from '../auth/helpers';
 import Inventory from '../components/inventory';
 import Request from '../components/request'
-import SignIn2 from '../components/loginform2'
 import Staff from '../components/staff'
 // <Route path ="/login" component = {LoginForm} />
 //         <Route path ="/booking" component = {Booking} />
@@ -31,11 +30,11 @@ function Routes() {
         component={SignIn}
         // auth={authApi.auth}
       />
-      <RouteRegisterationAdmin
+      {/* <RouteRegisterationAdmin
         path="/adminsignin"
         component={SignIn2}
         // auth={authApi.auth}
-      />
+      /> */}
       <RouteRegisteration
         path="/signup"
         component={SignUp}
