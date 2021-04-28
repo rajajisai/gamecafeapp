@@ -15,7 +15,8 @@ class Inventory extends Component {
         super(props);
     
         this.state = { systems:[],
-            workstation:{}};
+            workstation:{},
+        date:""};
         this.bookSlot = this.bookSlot.bind(this);
       }
     //' /workstation'
@@ -34,10 +35,13 @@ class Inventory extends Component {
     })
   }
     componentDidMount() {
+        let date=new Date();
+        console.log(date.toISOString().slice(0, 10));
         const apiUrl = ' /workstation/';
         fetch(apiUrl)
           .then((response) => response.json())
-          .then((data) => this.setState({systems: data.slice(0)}));
+          .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date.toISOString().slice(0, 10) })}));
+          this.setState({date:date.toISOString().slice(0, 10)})
       }
       bookSlot(msg,num){
         //   this.setState({workstation:d});
@@ -93,12 +97,34 @@ class Inventory extends Component {
             if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
             return d.toISOString().slice(0,10) === dateString;
           }
+          toDate(date){
+            const apiUrl = ' /workstation/';
+            fetch(apiUrl)
+              .then((response) => response.json())
+              .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date })}));
+              this.setState({date:date})
+    
+          }
     render() { 
         var data=this.state.systems;
-        return (
+        var date1=new Date();
+        var date2=new Date();
+        date2.setDate(date1.getDate()+1);
+        var date3=new Date();
+        date3.setDate(date1.getDate()+2);
+        var date4=new Date();
+        date4.setDate(date1.getDate()+3);
+        var date5=new Date();
+        date5.setDate(date1.getDate()+4);
+        var date6=new Date();
+        date6.setDate(date1.getDate()+5);
+        var date7=new Date();
+        date7.setDate(date1.getDate()+6);
+        // console.log(data[0]);
+        return ( <div>
 
-                <div>
-                <Navbar2 />
+            <Navbar2 />
+
                 <div class="contact-form" >
                 <div class="textbox"><input type="text" placeholder="Name of workstation" id="name" /></div>
             
@@ -109,20 +135,29 @@ class Inventory extends Component {
             <div class="textbox"><input type="text" placeholder="Date in YYYY-MM-DD format" id="date" /></div>
             <div class="textbox"><input type="text" placeholder="Url of picture of workstation" id="pic" /></div>
             <div class="textbox"><input type="text" placeholder="Per hour rent rate" id="rent" /></div>
-            
             <Button href="/inventory" onClick={this.onSubmit} className="btn" type="submit">Add system</Button>
             </div>
-                <div style ={{position:"absolute", left:"80px", top:"700px"}}>
-                <ul id="removeBullets" className="productGrid flex-container wrap"> 
-                {/* <h3>This will be the Inventory page!</h3> */}
-                {data.map((d) => {
+            {/* <Navbar /> */}
+            <div style ={{position:"absolute", left:"80px", top:"600px"}}>
+            <DropdownButton style={{width:"11.5%",margin:"10px 27px"}} id="dropdown-basic-button" title={this.state.date}>
+        <Dropdown.Item  onClick={() =>this.toDate(date1.toISOString().slice(0, 10))} className = {'green-color'}>{date1.toISOString().slice(0, 10)}</Dropdown.Item>
+        <Dropdown.Item  onClick={() =>this.toDate(date2.toISOString().slice(0, 10))}  className = {'green-color'}>{date2.toISOString().slice(0, 10)}</Dropdown.Item>
+        <Dropdown.Item  onClick={() =>this.toDate(date3.toISOString().slice(0, 10))}  className = {'green-color'}>{date3.toISOString().slice(0, 10)}</Dropdown.Item>
+        <Dropdown.Item  onClick={() =>this.toDate(date4.toISOString().slice(0, 10))}  className = {'green-color'}>{date4.toISOString().slice(0, 10)}</Dropdown.Item>
+        <Dropdown.Item  onClick={() =>this.toDate(date5.toISOString().slice(0, 10))}  className = {'green-color'}>{date5.toISOString().slice(0, 10)}</Dropdown.Item>
+        <Dropdown.Item  onClick={() =>this.toDate(date6.toISOString().slice(0, 10))}  className = {'green-color'}>{date6.toISOString().slice(0, 10)}</Dropdown.Item>
+        <Dropdown.Item  onClick={() =>this.toDate(date7.toISOString().slice(0, 10))}  className = {'green-color'}>{date7.toISOString().slice(0, 10)}</Dropdown.Item>
+        </DropdownButton>
+
+            <div>
+        <ul id="removeBullets" className="productGrid flex-container wrap">
+             {data.map((d) => {
              return(
             <li  className="flex-item ">
             <img className="" src={d.pic} />
                 <div className="caption">
                     <h5 className="bolder">{d.name}</h5>
                     <p>Rs.{d.rent}/hr</p>
-                    <p >{d.date}</p>
                 </div>
                 <DropdownButton id="dropdown-basic-button" title="Games Available">
                     {d.config.games.map((game) =>{
@@ -132,15 +167,18 @@ class Inventory extends Component {
                     })}
                 </DropdownButton>
                 <Button onClick={() =>this.onDelete(d)} className="btn">Delete Worktation</Button>
+                {/* <button onClick={() =>this.bookSlot(d)}>Testing</button> */}
+                
             </li>)
-        })}</ul>
-            </div>
+        })}
+        </ul>
+        </div>
+        </div>
+        </div>
 
-            
-
-            </div>
-        );
+    );
     }
+  
 }
   
  
