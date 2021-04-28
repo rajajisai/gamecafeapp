@@ -1,6 +1,9 @@
 ul#removeBullets {
   list-style-type: none;
 }
+#removeBullets li {
+  margin: 20px;
+}
 p {
   font-weight: bold;
 }

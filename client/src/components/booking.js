@@ -99,7 +99,8 @@ class Booking extends Component {
         super(props);
     
         this.state = { systems:[],
-            workstation:{}};
+            workstation:{},
+            date:""};
         this.bookSlot = this.bookSlot.bind(this);
       }
     //' /workstation'
@@ -111,6 +112,7 @@ class Booking extends Component {
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date.toISOString().slice(0, 10) })}));
+          this.setState({date:date.toISOString().slice(0, 10)})
       }
       async bookSlot(msg,num,date){
         if(msg.slots[num].isBooked){alert("Slot not available");
@@ -149,6 +151,7 @@ class Booking extends Component {
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => this.setState({systems: data.slice(0).filter(function(obj){return obj.date==date })}));
+          this.setState({date:date})
 
       }
         //   msg.slots[num].isBooked = false;
@@ -176,7 +179,7 @@ class Booking extends Component {
 
             {/* <Navbar /> */}
 
-            <DropdownButton style={{width:"11.5%",margin:"10px 27px"}}id="dropdown-basic-button" title="Select a Date">
+            <DropdownButton style={{width:"11.5%",margin:"10px 27px"}}id="dropdown-basic-button" title={this.state.date}>
         <Dropdown.Item  onClick={() =>this.toDate(date1.toISOString().slice(0, 10))} className = {'green-color'}>{date1.toISOString().slice(0, 10)}</Dropdown.Item>
         <Dropdown.Item  onClick={() =>this.toDate(date2.toISOString().slice(0, 10))}  className = {'green-color'}>{date2.toISOString().slice(0, 10)}</Dropdown.Item>
         <Dropdown.Item  onClick={() =>this.toDate(date3.toISOString().slice(0, 10))}  className = {'green-color'}>{date3.toISOString().slice(0, 10)}</Dropdown.Item>
