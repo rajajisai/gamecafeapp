@@ -32,7 +32,7 @@ export default function Profile() {
         <div style={{display: 'flex',  justifyContent:'center'}}>
         <h3>Hi {String(mer.name)}!!</h3>
           </div>
-          {/* <button onClick={handleSignout}>Logout</button> */}
+
         
         <UserBooking userEmail={email}/>
 

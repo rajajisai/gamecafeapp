@@ -16,9 +16,7 @@ class Navbar extends Component {
               {/* <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#">Sign Up</a>
               </li> */}
-              <li className="nav-item">
-                <a className="nav-link" href="/signin">Login</a>
-              </li>
+
               <li className="nav-item">
                 <a className="nav-link" href="/booking">Book Slots</a>
               </li>

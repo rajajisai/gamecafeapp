@@ -10,7 +10,7 @@ import { useHistory } from 'react-router-dom';
 import cookie from 'js-cookie';
 export default function LogoutButton() {
     let history = useHistory();
-    // const authApi = useContext(AuthApi);
+
     const cust = cookie.get('user');
     const mer = JSON.parse(localStorage.getItem('user'));
     console.log(cust)
@@ -18,7 +18,7 @@ export default function LogoutButton() {
     console.log("Printing Email:",mer.email);
     const [email, setEmail] = useState(mer.email);
     const handleSignout = () => {
-        // console.log("asd " + authApi.auth  
+
       signout(() => {
         axios.delete(' /customer/logout')
        .then(res => console.log(res.data));
@@ -27,8 +27,7 @@ export default function LogoutButton() {
     };
     return (
          <a className="nav-link" onClick={handleSignout}>Logout</a>
-        // <Button imageUrl="https://demos.telerik.com/kendo-ui/content/shared/icons/sports/snowboarding.png">Image icon</Button>
-        // <button><img src='./img/1.png'  onClick={handleSignout} /></button>
+
         
     );
   }

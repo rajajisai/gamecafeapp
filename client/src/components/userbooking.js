@@ -24,7 +24,7 @@ class UserBooking
                     <div style={{display: 'flex',  justifyContent:'center'}}>
                     <h4>Your Bookings:</h4>
                     </div>
-                    {/* <p>{this.state.customer}</p> */}
+
                     <div>
                         <ul id="removeBullets" className="productGrid flex-container wrap">
                             {data.map((d) => {

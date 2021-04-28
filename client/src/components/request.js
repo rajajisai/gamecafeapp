@@ -70,27 +70,10 @@ class Request extends Component {
     
       render() {
         var data=this.state.requests;
-        // console.log(data[0]);
+
         return ( <div>
             <Navbar2 /> 
-            {/* <Form>
-              <h5>Make a new request here:</h5>
-              <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Enter your name</Form.Label>
-                <Form.Control value ={this.state.name} onChange={e => this.changeName(e.target.value)} type="name"  />
-              </Form.Group>
-              <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Enter PC/Console name</Form.Label>
-                <Form.Control value ={this.state.wsname} onChange={e => this.changewsName(e.target.value)} type="name"  />
-              </Form.Group>
-              <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Enter your request</Form.Label>
-                <Form.Control value ={this.state.reqbody} onChange={e => this.changeRequest(e.target.value)} as="textarea" rows={3} />
-              </Form.Group>
-              <Button variant="success" onClick={this.onSubmit} className="btn-success" type="submit">
-                Submit
-              </Button>
-            </Form> */}
+           
             <div>
         <ul id="removeBullets" className="productGrid flex-container wrap">
              {data.map((d) => {
