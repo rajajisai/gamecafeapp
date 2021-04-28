@@ -29,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.5",
     "passport": "^0.4.1",
+    "react-google-button": "^0.7.2",
     "validation": "^0.0.1"
   },
   "devDependencies": {

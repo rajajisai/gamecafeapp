@@ -76,6 +76,11 @@ function Routes() {
         component={Staff}
         // auth={authApi.auth}
       />
+       <RouteRedirection
+        path="/"
+        // component={CustomerRequest}
+        // auth={authApi.auth}
+      />
           
       
     </Switch>
@@ -111,6 +116,18 @@ const RouteRegisteration = ({ component: Component, ...rest }) => {
         render={(props) =>
           //(!isAdmin() ? <Component {...props} /> : <Redirect to="/dashboard" />)
           (!isAuth() ? <Component {...props} /> : <Redirect to="/booking" />)
+        }
+      />
+    );
+  };
+  const RouteRedirection = ({ component: Component, ...rest }) => {
+    
+    return (
+      <Route
+        {...rest}
+        render={(props) =>
+          //(!isAdmin() ? <Component {...props} /> : <Redirect to="/dashboard" />)
+          ( <Redirect to="/signin" />)
         }
       />
     );
