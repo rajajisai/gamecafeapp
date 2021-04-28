@@ -8,6 +8,7 @@ import Navbar from './navbar.js';
 import { authenticate, isAuth ,signout,getCookie } from '../auth/helpers';
 import { useHistory } from 'react-router-dom';
 import cookie from 'js-cookie';
+import { alignPropType } from 'react-bootstrap/esm/DropdownMenu';
 export default function Profile() {
     let history = useHistory();
     // const authApi = useContext(AuthApi);
@@ -28,13 +29,13 @@ export default function Profile() {
     return (
       <div>
         <Navbar />
-        <h1>Hi {String(mer.name)}!</h1>
-
-        <LogoutButton/>
-          
+        <div style={{display: 'flex',  justifyContent:'center'}}>
+        <h3>Hi {String(mer.name)}!!</h3>
+          </div>
           {/* <button onClick={handleSignout}>Logout</button> */}
         
         <UserBooking userEmail={email}/>
+
       </div>
     );
   }

@@ -72,7 +72,7 @@ function Routes() {
         // auth={authApi.auth}
       />
       <RouteProtectedAdmin
-        path="/staff"
+        path="/stats"
         component={Staff}
         // auth={authApi.auth}
       />

@@ -1,28 +1,38 @@
-ul#removeBullets{
+ul#removeBullets {
   list-style-type: none;
 }
 p {
   font-weight: bold;
 }
-.productGrid li{
+.productGrid li {
   display: inline;
-    float: left;
-    padding: 10px;
+  float: left;
+  padding: 10px;
   /* border: 1px solid rgb(0, 255, 0); */
   margin-right: 5px;
 }
-.green-color{
-  color:green !important
+.green-color {
+  color: green !important;
 }
-.red-color{
-  color: red  !important
+.red-color {
+  color: red !important;
 }
-.flex-item{
+.flex-item {
   color: white;
   font-weight: bolder;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
-.caption{
-  margin:auto;
+.caption {
+  margin: auto;
   text-align: center;
+}
+.dbb {
+  width: 11.5%;
+  background: none;
+  border: 2px solid rgb(166, 255, 0);
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 12px 30px;
 }

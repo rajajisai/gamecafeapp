@@ -169,7 +169,7 @@ class Dashboard extends Component {
 
             {/* <Navbar /> */}
 
-            <DropdownButton id="dropdown-basic-button" title="Select a Date">
+            <DropdownButton style={{width:"11.5%",margin:"10px 27px"}} id="dropdown-basic-button" title="Select a Date">
         <Dropdown.Item  onClick={() =>this.toDate(date1.toISOString().slice(0, 10))} className = {'green-color'}>{date1.toISOString().slice(0, 10)}</Dropdown.Item>
         <Dropdown.Item  onClick={() =>this.toDate(date2.toISOString().slice(0, 10))}  className = {'green-color'}>{date2.toISOString().slice(0, 10)}</Dropdown.Item>
         <Dropdown.Item  onClick={() =>this.toDate(date3.toISOString().slice(0, 10))}  className = {'green-color'}>{date3.toISOString().slice(0, 10)}</Dropdown.Item>

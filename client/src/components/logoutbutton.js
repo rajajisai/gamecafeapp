@@ -26,7 +26,7 @@ export default function LogoutButton() {
       });
     };
     return (
-         <button onClick={handleSignout}>Logout</button>
+         <a className="nav-link" onClick={handleSignout}>Logout</a>
         // <Button imageUrl="https://demos.telerik.com/kendo-ui/content/shared/icons/sports/snowboarding.png">Image icon</Button>
         // <button><img src='./img/1.png'  onClick={handleSignout} /></button>
         

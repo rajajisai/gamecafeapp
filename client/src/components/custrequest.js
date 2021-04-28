@@ -52,21 +52,21 @@ class CustomerRequest extends Component {
         // console.log(data[0]);
         return ( <div>
             <Navbar /> 
-            <Form>
+            <Form style={{margin:"10px 10px"}}>
               <h5>Make a new request here:</h5>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Enter your name</Form.Label>
-                <Form.Control value ={this.state.name} onChange={e => this.changeName(e.target.value)} type="name"  />
+                <Form.Control style={{width:"20%"}}value ={this.state.name} onChange={e => this.changeName(e.target.value)} type="name"  />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Enter PC/Console name</Form.Label>
-                <Form.Control value ={this.state.wsname} onChange={e => this.changewsName(e.target.value)} type="name"  />
+                <Form.Control style={{width:"20%"}} value ={this.state.wsname} onChange={e => this.changewsName(e.target.value)} type="name"  />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Enter your request</Form.Label>
-                <Form.Control value ={this.state.reqbody} onChange={e => this.changeRequest(e.target.value)} as="textarea" rows={3} />
+                <Form.Control style={{width:"35%"}} value ={this.state.reqbody} onChange={e => this.changeRequest(e.target.value)} as="textarea" rows={3} />
               </Form.Group>
-              <Button variant="success" onClick={this.onSubmit} className="btn-success" type="submit">
+              <Button variant="success" style={{width:"15%",textAlign:"center"}} onClick={this.onSubmit} className="btn-success" type="submit">
                 Submit
               </Button>
             </Form>

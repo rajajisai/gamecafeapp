@@ -60,7 +60,11 @@ class Inventory extends Component {
         var type= document.getElementById("type").value
         var rent=document.getElementById("rent").value
         var date=document.getElementById("date").value
-        if(name!=""&&type!=""&&rent!=""&&date!=""&&pic!="" ){
+        if(!this.isValidDate(date)){
+            alert("Enter the correct date in yyyy-mm-dd format   ");
+            return;
+        }
+        if(name!=""&&type!=""&&rent!=""&&pic!="" ){
          
         const newRequest ={
           name: name,
@@ -81,6 +85,14 @@ class Inventory extends Component {
                 alert("please enter name of workstation and type of workstation")
             }
         }
+                isValidDate(dateString) {
+            var regEx = /^\d{4}-\d{2}-\d{2}$/;
+            if(!dateString.match(regEx)) return false;  // Invalid format
+            var d = new Date(dateString);
+            var dNum = d.getTime();
+            if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
+            return d.toISOString().slice(0,10) === dateString;
+          }
     render() { 
         var data=this.state.systems;
         return (

@@ -20,9 +20,10 @@ class UserBooking
     render() {
         var data = this.state.slots;
         return (<div>
-                    <h>Hi {this.state.customer.name}</h>
-                    <p>Your email is {this.state.customer.email}</p>
+
+                    <div style={{display: 'flex',  justifyContent:'center'}}>
                     <h4>Your Bookings:</h4>
+                    </div>
                     {/* <p>{this.state.customer}</p> */}
                     <div>
                         <ul id="removeBullets" className="productGrid flex-container wrap">

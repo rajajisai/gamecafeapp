@@ -67,6 +67,6 @@ body {
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-
   color: white;
+  padding: 20px 40px;
 }
