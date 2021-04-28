@@ -61,19 +61,17 @@ class Inventory extends Component {
       onSubmit = () => {
         var name=document.getElementById("name").value
         var pic=document.getElementById("pic").value
-        var type= document.getElementById("type").value
         var rent=document.getElementById("rent").value
         var date=document.getElementById("date").value
         if(!this.isValidDate(date)){
             alert("Enter the correct date in yyyy-mm-dd format   ");
             return;
         }
-        if(name!=""&&type!=""&&rent!=""&&pic!="" ){
+        if(name!=""&&rent!=""&&pic!="" ){
          
         const newRequest ={
           name: name,
           pic: pic,
-          type: type,
             rent: Number(rent),
             date:date
         }
@@ -86,7 +84,7 @@ class Inventory extends Component {
                this.setState({ systems:systems  });
              })
             }else{
-                alert("please enter name of workstation and type of workstation")
+                alert("please enter name of workstation ,type of workstation and pic")
             }
         }
                 isValidDate(dateString) {
@@ -128,10 +126,6 @@ class Inventory extends Component {
                 <div class="contact-form" >
                 <div class="textbox"><input type="text" placeholder="Name of workstation" id="name" /></div>
             
-
-            <div class="textbox">
-            <input type="text" placeholder="Type of workstation" id="type" />
-            </div>
             <div class="textbox"><input type="text" placeholder="Date in YYYY-MM-DD format" id="date" /></div>
             <div class="textbox"><input type="text" placeholder="Url of picture of workstation" id="pic" /></div>
             <div class="textbox"><input type="text" placeholder="Per hour rent rate" id="rent" /></div>
