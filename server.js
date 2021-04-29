@@ -10,14 +10,6 @@ const router = require('express').Router();
 require('dotenv').config();
 const path = require('path');
 
-// const {
-//   HOST,
-//   PORT,
-//   SESS_SECRET,
-//   NODE_ENV,
-//   IS_PROD,
-//   COOKIE_NAME
-// } = require("./config/config");
 
 const MAX_AGE = 1000 * 60 * 60 * 3; // Three hours
 
@@ -50,19 +42,8 @@ mongoose
 //   console.log("MongoDB database connection established successfully");
 // })
 
-// module.exports = {
-//   IS_PROD: process.env.NODE_ENV === 'production',
-//   NODE_ENV: process.env.NODE_ENV,
-//   PORT: process.env.PORT,
-//   HOST: process.env.HOST,
-//   DB_USERNAME: process.env.DB_USERNAME,
-//   DB_PASSWORD: process.env.DB_PASSWORD,
-//   DB_CLUSTER: process.env.DB_CLUSTER,
-//   SESS_SECRET: process.env.SESS_SECRET,
-//   COOKIE_NAME: process.env.COOKIE_NAME,
-// };
+
 let SESS_NAME = 'sid';
-// const MongoStore = new connectStore(session);
 let NODE_ENV = process.env.NODE_ENV;
 let SESS_SECRET = 'secret!session';
 let SESS_LIFETIME = 1000 * 60 * 60 * 2
@@ -72,7 +53,6 @@ app.use(session({
   saveUninitialized: false,
   resave: false,
   store: MongoDBStore({
-    // mongooseConnection: mongoose.connection,
     collection: 'session',
     ttl: parseInt(SESS_LIFETIME) / 1000,
     uri:process.env.MONGODB_URI
@@ -89,23 +69,9 @@ app.use(session({
 //   collection: "mySessions"
 // });
 
-// app.use(express.urlencoded({ extended: false }));
 
 
-// app.use(
-//   session({
-//     name: COOKIE_NAME, //name to be put in "key" field in postman etc
-//     secret: SESS_SECRET,
-//     resave: true,
-//     saveUninitialized: false,
-//     store: mongoDBstore,
-//     cookie: {
-//       maxAge: MAX_AGE,
-//       sameSite: false,
-//       secure: IS_PROD
-//     }
-//   })
-// )
+
 
 const customerRouter = require('./routes/customer');
 app.use('/customer', customerRouter);
@@ -128,24 +94,12 @@ app.use(function(req, res) {
 	res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
-// app.use(express.static('client/build'));
 
-// if (process.env.NODE_ENV === 'production') {
-//     // Set static folder
-//     app.use(express.static('./client/build'));
-  
-//     app.get('*', (req, res) => {
-//       res.sendFile(path.resolve(__dirname,'./client/build/index.html'));
-//     });
-//   }
 
 app.get('/', function (req, res) {
   res.redirect('/signin');
 })
-// app.use(express.static(path.join(__dirname, '../build')))
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../build'))
-// })
+
 app.listen(port,() => {
     console.log('Server is running on port:',port);
 });

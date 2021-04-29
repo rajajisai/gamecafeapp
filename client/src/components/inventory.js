@@ -72,6 +72,7 @@ class Inventory extends Component {
         const newRequest ={
           name: name,
           pic: pic,
+
             rent: Number(rent),
             date:date
         }
